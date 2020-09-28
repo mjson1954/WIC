@@ -1,4 +1,5 @@
-from collections import deque
+from collections import deque # 데크 모듈
+# 양방향에서 데이터를 처리할 수 있는 queue형 자료구조
 
 INF = 99999
 move = [[0, 1], [1, 0], [-1, 0], [0, -1]] # 우, 하, 좌, 상
