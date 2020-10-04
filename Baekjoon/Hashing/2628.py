@@ -1,6 +1,6 @@
 x, y = map(int, input().split())
-x_list = [0, x]
-y_list = [0, y]
+x_list = [0, x] # 가로 (x축)
+y_list = [0, y] # 세로 (y축)
 n = int(input())
 
 for i in range(n):
@@ -12,8 +12,8 @@ for i in range(n):
 
 x_list = sorted(x_list)
 y_list = sorted(y_list)
-max_x = 0
-max_y = 0
+max_x = 0 # 최대 가로 길이
+max_y = 0 # 최대 세로 길이
 for i in range(len(x_list)-1):
     if(max_x < x_list[i+1]-x_list[i]):
         max_x = x_list[i+1]-x_list[i]
