@@ -1,32 +1,29 @@
+# 위상정렬
 import heapq
 
 n, m = map(int, input().split())
-heap = [i+1 for i in range(n)]
+precede = [0 for _ in range(n+1)] # 위상 [0 , 1, 2, 3, 4]
+rule = [[] for _ in range(n+1)]
+heap = []
+result = []
+
+heapq.heapify(heap) # 위상 0인것 중 작은 것부터 출력하게
 
 for i in range(m):
     a, b = map(int, input().split())
-    a_idx = heap.index(a)
-    b_idx = heap.index(b)
-    temp = heap[b_idx]
-    heap[b_idx] = a
-    heap[a_idx] = temp
+    rule[a].append(b) 
+    precede[b] += 1
 
-#print(heap)
-result = []
-count = 1
-while(len(result) < n):
-    templist = []
-    heapq.heapify(templist)
-    for _ in range(count):
-        if(len(heap) == 0):
-            break
-        temp = heap.pop(0)
-        heapq.heappush(templist, temp)
-    #print(templist)
-    for i in range(len(templist)):
-        result.append(templist[i])
-    
-    count = count * 2
+for i in range(1, n+1):
+    if(precede[i] == 0):
+        heapq.heappush(heap, i)
 
-for i in range(n):
-    print(result[i], end=' ')
+while(heap):
+    num = heapq.heappop(heap)
+    result.append(num)
+    for i in rule[num]:
+        precede[i] -=1
+        if(precede[i] == 0):
+            heapq.heappush(heap, i)     
+
+print(*result) # 오 이거 좋당.
