@@ -18,9 +18,7 @@ def solution(numbers):
         for j in list(permutations(numbers, i)):
             num = int(''.join(j))
             entire.append(num)
-
     entire = list(set(entire))
-    print(entire)
     for num in entire:
         if(find(num)):
             answer += 1
