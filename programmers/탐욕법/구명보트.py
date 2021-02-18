@@ -1,9 +1,9 @@
 def solution(people, limit):
     people.sort()
     temp = [0]
-    count = 0
-    while(len(people) > 0):
-        now = people.pop()
+    #count = 0
+    # while(len(people) > 0):
+     #   now = people.pop()
         
 
     print(temp)
