@@ -14,8 +14,8 @@ def dfs(a, b, m, n):
                 dfs(x, y, m, n)
 
 T = int(input())
-for tc in range(T):
-    answer = 1
+for _ in range(T):
+    answer = 0
     m, n, k = map(int, input().split())
     matrix = [[0 for _ in range(m)] for _ in range(n)]
     visited = [[0 for _ in range(m)] for _ in range(n)]
